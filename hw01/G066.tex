@@ -79,7 +79,7 @@ $ F_{\beta = 1} = \frac{1}{\frac{1}{2Precision} + \frac{1}{2Recall}} = \frac{1}{
 % PROBLEM 3
 \begin{flushleft}
 \textbf{3)}
-Some values of $y_2$, given $y_1 = A$, might be missing or corrupted and it could be risky to train the system with corrupt or incomplete data. Another reason could be a very low information gain about $y_{out}$ of the variable $y_2$, given $y_1 = A$, and therefore it would be a waste of time to train the system with this variable. \par
+Some values of $y_2$, given $y_1 = A$, might be missing or corrupted and it could prove risky to train the system with corrupt or incomplete data. Another reason could be a very low information gain about $y_{out}$ of the variable $y_2$, given $y_1 = A$, which would make it a waste of time to train the system with this variable. \par
 \end{flushleft}
 \vspace*{2mm}
 
@@ -155,13 +155,13 @@ Some values of $y_2$, given $y_1 = A$, might be missing or corrupted and it coul
 % PROBLEM 2
 \begin{flushleft}
 \textbf{2)}
-From the plot above, we can see that the decision tree is overfitting the training data as the training accuracy is always 1.
+From the plot above, it can be surmised that the decision tree is overfitting the training data, seeing as the training accuracy is always 1.
 
-Overfitting is the phenomenon in which the learning system tightly fits the given training data so much that it would be 100\% accurate in predicting the outcomes of the trained data, if run through the system again.
+Overfitting is a phenomenon which occurs when the learning system fits the given training data to such an extent that it is 100\% accurate in predicting the outcomes of the trained data, if run through the system again.
 
-This has happened because the generated decision tree has no depth limit and, as such, perfectly fits all samples in the training data set. Because it covers all cases down to the most singular one, the training accuracy is 1.
+This has happened in our case because the generated decision tree has no depth limit and, as such, perfectly fits all samples in the training data set. Therefore, it covers every single case, resulting in a training accuracy of 1.
 
-The results show that the mean of testing accuracy values is approximately 0.794, which is considerably less than 1. This is legitimate, given that the tree has been trained with the training data in such detail that it cannot accurately predict the outcomes of the untrained data. This is one of the biggest problems of Overfitting.
+The results show that the mean of the testing accuracy values is approximately 0.794, which is considerably less than 1. This is legitimate, given that the tree has been trained with the training data to such a great deal of detail that it cannot accurately predict the outcomes of the untrained data. This is one of the biggest problems with Overfitting.
 \end{flushleft}
 
 \pagebreak
