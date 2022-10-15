@@ -1,15 +1,11 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage{amsmath, tabularx, geometry, graphicx, xcolor, multirow}
-
-\usepackage{tikz, listings}
-\usepackage{xcolor}
+\usepackage{amsmath,tabularx,geometry,graphicx,xcolor,multirow,tikz,listings,xcolor}
 
 \usetikzlibrary{positioning}
 \newdimen\nodeDist
 \nodeDist=35mm
-
 \geometry{a4paper, left=20mm, top=20mm}
-\graphicspath{{./imgs/}}
+\graphicspath{{../imgs/}}
 \renewcommand\tabularxcolumn[1]{m{#1}}
 
 \title{Aprendizagem 2021/22 Homework I - Group 66}
@@ -64,15 +60,15 @@
     &                        & \multicolumn{2}{c}{Real}                        \\ \cline{3-4} 
     & \multicolumn{1}{l|}{}  & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{N} \\ \cline{2-4} 
   \multicolumn{1}{c|}{\multirow{2}{*}{Predicted}} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{2} \\ \cline{2-4} 
-  \multicolumn{1}{c|}{}                           & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{7} \\ \cline{2-4} 
+  \multicolumn{1}{c|}{}                           & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{7} \\ \cline{2-4} 
   \end{tabular} &
   \normalsize
   $ Precision = \frac{TP}{TP + FP} = \frac{5}{5 + 2} = \frac{5}{7} $ \par
-  $ Recall = \frac{TP}{TP + FN} = \frac{5}{5 + 5} = \frac{1}{2} $
+  $ Recall = \frac{TP}{TP + FN} = \frac{5}{5 + 6} = \frac{5}{11} $
 \end{tabularx}
 \vspace{0mm}
 \normalsize
-$ F_{\beta = 1} = \frac{1}{\frac{1}{2Precision} + \frac{1}{2Recall}} = \frac{1}{\frac{7}{10} + \frac{2}{2}} = \frac{1}{\frac{17}{10}} = \frac{10}{17} \approx 0.588235 $ \par
+$ F_{\beta = 1} = \frac{1}{\frac{1}{2Precision} + \frac{1}{2Recall}} = \frac{1}{\frac{7}{10} + \frac{11}{10}} = \frac{1}{\frac{18}{10}} = \frac{10}{18} \approx 0.555556 $ \par
 \end{flushleft}
 \vspace*{2mm}
 
@@ -148,7 +144,7 @@ Some values of $y_2$, given $y_1 = A$, might be missing or corrupted and it coul
 % PROBLEM 1
 \begin{flushleft}
 \textbf{1)} \par
-\includegraphics[scale=0.75]{plot.pdf}
+\includegraphics[scale=0.75]{hw01_plot.pdf}
 \end{flushleft}
 \vspace*{2mm}
 
@@ -162,6 +158,8 @@ Overfitting is a phenomenon which occurs when the learning system fits the given
 This has happened in our case because the generated decision tree has no depth limit and, as such, perfectly fits all samples in the training data set. Therefore, it covers every single case, resulting in a training accuracy of 1.
 
 The results show that the mean of the testing accuracy values is approximately 0.794, which is considerably less than 1. This is legitimate, given that the tree has been trained with the training data to such a great deal of detail that it cannot accurately predict the outcomes of the untrained data. This is one of the biggest problems with Overfitting.
+
+Arguably, the top 250 features yield nearly as much discriminative information as the original feature space.
 \end{flushleft}
 
 \pagebreak
