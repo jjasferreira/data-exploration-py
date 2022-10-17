@@ -263,47 +263,41 @@ Priors:\hspace{5mm}$ P(class = P) = \frac{5}{9} $ \hspace{5mm} $ P(class = N) = 
   \end{tabular}
   &
   $ h_{MAP} = argmax_{h \in H}P(h|D) $
-\end{tabularx}
-\begin{flalign*}
-  P(class = P | x_{t1}) &= \frac{P(x_{t1} | class = P) \cdot P(class = P)}{P(x_{t1})} &&\\
-  &= \frac{P(y_1 = A, y_2 = 1 | class = P) \cdot P(y_3 = 0.8 | class = P) \cdot P(class = P)}{P(y_1 = A, y_2 = 1) \cdot P(y_3 = 0.8)} &&\\
-  &= \frac{P(y_1 = A, y_2 = 1 | class = P) \cdot N(y_3 = 0.8 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = A, y_2 = 1) \cdot N(y_3 = 0.8 | \mu = 0.9, \sigma^2 = 0.0475)} &&\\
-  &= \frac{\sfrac{1}{5} \times 1.569369 \times \sfrac{5}{9}}{\sfrac{2}{9} \times 1.647586} &&\\
-  &\approx 0.476263
-\end{flalign*}
+\end{tabularx} \par
+  \vspace{3.5mm}\small $ P(class = P | x_{t1}) = \frac{P(x_{t1} | class = P) \cdot P(class = P)}{P(x_{t1} | class = P) \cdot P(class = P) + P(x_{t1} | class = N) \cdot P(class = N)} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = A, y_2 = 1 | class = P) \cdot P(y_3 = 0.8 | class = P) \cdot P(class = P)}{P(y_1 = A, y_2 = 1 | class = P) \cdot P(y_3 = 0.8 | class = P) \cdot P(class = P) + P(y_1 = A, y_2 = 1 | class = N) \cdot P(y_3 = 0.8 | class = N) \cdot P(class = N)} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = A, y_2 = 1 | class = P) \cdot N(y_3 = 0.8 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = A, y_2 = 1 | class = P) \cdot N(y_3 = 0.8 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P) + P(y_1 = A, y_2 = 1 | class = N) \cdot N(y_3 = 0.8 | \mu = 0.975, \sigma^2 = 0.029) \cdot P(class = N)} $ \par
+  \vspace{2mm}\small $ = \frac{\sfrac{1}{5} \times 1.569369 \times \sfrac{5}{9}}{\sfrac{1}{5} \times 1.569369 \times \sfrac{5}{9} + \sfrac{1}{4} \times 1.381643 \times \sfrac{4}{9}} $ \par
+  \vspace{2.5mm}\small $ \approx 0.5318 $ \par
 
-\vspace{2mm}\begin{tabular}{c|c|c|c|c|}
+\vspace{6mm}\begin{tabular}{c|c|c|c|c|}
   \cline{2-5}
                                  & $y_1$ & $y_2$ & $y_3$ & $class$ \\ \hline
   \multicolumn{1}{|c|}{$x_{t2}$} & B     & 1     & 1     & P       \\ \hline
-\end{tabular}
-\begin{flalign*}
-  P(class = P | x_{t2}) &= \frac{P(x_{t2} | class = P) \cdot P(class = P)}{P(x_{t2})} &&\\
-  &= \frac{P(y_1 = B, y_2 = 1 | class = P) \cdot P(y_3 = 1 | class = P) \cdot P(class = P)}{P(y_1 = B, y_2 = 1) \cdot P(y_3 = 1)} &&\\
-  &= \frac{P(y_1 = B, y_2 = 1 | class = P) \cdot N(y_3 = 1 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = B, y_2 = 1) \cdot N(y_3 = 1 | \mu = 0.9, \sigma^2 = 0.0475)} &&\\
-  &= \frac{\sfrac{1}{5} \times 1.297186 \times \sfrac{5}{9}}{\sfrac{2}{9} \times 1.647586} &&\\
-  &\approx 0.393663
-\end{flalign*}
+\end{tabular} \par
+  \vspace{3.5mm}\small $ P(class = P | x_{t2}) = \frac{P(x_{t2} | class = P) \cdot P(class = P)}{P(x_{t2} | class = P) \cdot P(class = P) + P(x_{t2} | class = N) \cdot P(class = N)} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = B, y_2 = 1 | class = P) \cdot P(y_3 = 1 | class = P) \cdot P(class = P)}{{P(y_1 = B, y_2 = 1 | class = P) \cdot P(y_3 = 1 | class = P) \cdot P(class = P) + P(y_1 = B, y_2 = 1 | class = N) \cdot P(y_3 = 1 | class = N) \cdot P(class = N)}} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = B, y_2 = 1 | class = P) \cdot N(y_3 = 1 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = B, y_2 = 1 | class = P) \cdot N(y_3 = 1 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P) + P(y_1 = B, y_2 = 1 | class = N) \cdot N(y_3 = 1 | \mu = 0.975, \sigma^2 = 0.029) \cdot P(class = N)} $ \par
+  \vspace{2mm}\small $ = \frac{\sfrac{1}{5} \times 1.297186 \times \sfrac{5}{9}}{\sfrac{1}{5} \times 1.297186 \times \sfrac{5}{9} + \sfrac{1}{4} \times 2.317560976003106 \times \sfrac{4}{9}} $ \par
+  \vspace{2.5mm}\small $ \approx 0.3588 $ \par
 
-\vspace{2mm}\begin{tabular}{c|c|c|c|c|}
+\vspace{6mm}\begin{tabular}{c|c|c|c|c|}
   \cline{2-5}
                                  & $y_1$ & $y_2$ & $y_3$ & $class$ \\ \hline
   \multicolumn{1}{|c|}{$x_{t3}$} & B     & 0     & 0.9   & N       \\ \hline
-  \end{tabular}
-\begin{flalign*}
-  P(class = P | x_{t3}) &= \frac{P(x_{t3} | class = P) \cdot P(class = P)}{P(x_{t3})} &&\\
-  &= \frac{P(y_1 = B, y_2 = 0 | class = P) \cdot P(y_3 = 0.9 | class = P) \cdot P(class = P)}{P(y_1 = B, y_2 = 0) \cdot P(y_3 = 0.9)} &&\\
-  &= \frac{P(y_1 = B, y_2 = 0 | class = P) \cdot N(y_3 = 0.9 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = B, y_2 = 0) \cdot N(y_3 = 0.9 | \mu = 0.9, \sigma^2 = 0.0475)} &&\\
-  &= \frac{\sfrac{1}{5} \times 1.544655 \times \sfrac{5}{9}}{\sfrac{3}{9} \times 1.830473} &&\\
-  &\approx 0.281285
-\end{flalign*}
+  \end{tabular} \par
+  \vspace{3.5mm}\small $ P(class = P | x_{t3}) = \frac{P(x_{t3} | class = P) \cdot P(class = P)}{P(x_{t3} | class = P) \cdot P(class = P) + P(x_{t3} | class = N) \cdot P(class = N)} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = B, y_2 = 0 | class = P) \cdot P(y_3 = 0.9 | class = P) \cdot P(class = P)}{{P(y_1 = B, y_2 = 0 | class = P) \cdot P(y_3 = 0.9 | class = P) \cdot P(class = P) + P(y_1 = B, y_2 = 0 | class = N) \cdot P(y_3 = 0.9 | class = N) \cdot P(class = N)}} $ \par
+  \vspace{2mm}\footnotesize $ = \frac{P(y_1 = B, y_2 = 0 | class = P) \cdot N(y_3 = 0.9 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P)}{P(y_1 = B, y_2 = 0 | class = P) \cdot N(y_3 = 0.9 | \mu = 0.84, \sigma^2 = 0.063) \cdot P(class = P) + P(y_1 = B, y_2 = 0 | class = N) \cdot N(y_3 = 0.9 | \mu = 0.975, \sigma^2 = 0.029) \cdot P(class = N)} $ \par
+  \vspace{2mm}\small $ = \frac{\sfrac{1}{5} \times 1.544655 \times \sfrac{5}{9}}{\sfrac{1}{5} \times 1.544655 \times \sfrac{5}{9} + \sfrac{2}{4} \times 2.126140645404257 \times \sfrac{4}{9}} $ \par
+  \vspace{2.5mm}\small $ \approx 0.2664 $ \par
 \end{flushleft}
 \normalsize
 
 % PROBLEM 4
 \begin{flushleft}\vspace{2mm}
 \textbf{4)}
-O decision threshold $\theta = 0.3$ otimiza a precisão pois assim a observação $x_{t3}$, que é negativa, é classificada como negativa, enquanto as observações $x_{t1}$ e $x_{t2}$, que são positivas, são classificadas como tal, atingindo uma precisão total, ao passo que com os outros valores isso não acontece - a precisão é 0 para $\theta = 0.5$ e $\theta = 0.7$.
+The decision threshold that optimizes testing accuracy is $\theta = 0.3$, seeing as it is the only one where observation $x_{t3}$ is classified as negative, while observations $x_{t1}$ and $x_{t2}$ are classified as positive, meaning that both positives are true positives and the negative is a true negative. With a threshold value of 0.5, all but one observation would be classified as negative, resulting in one false negative, and with a value of 0.7, all the observations would be classified as negative, resulting in two false negatives. As such, the accuracy value is $\sfrac{3}{3} = 1$ for $\theta = 0.3$, $\sfrac{2}{3}$ for $\theta = 0.5$ and $\sfrac{1}{3}$ for $\theta = 0.7$.
 \end{flushleft}
 
 \pagebreak
@@ -318,28 +312,47 @@ O decision threshold $\theta = 0.3$ otimiza a precisão pois assim a observaçã
 \color{black}
 
 \begin{center}
-\textbf{II. Programming}
+\textbf{II. Programming and critical analysis}
 \end{center}
 
-% PROBLEM 1
+% PROBLEM 5
 \begin{flushleft}
-\textbf{1)} \par
-\includegraphics[scale=0.75]{hw01_plot.pdf}
+\textbf{5)} \par
+\begin{center}
+\vspace{-4.5mm}\includegraphics[scale=0.8]{hw02_plot_knn.pdf}
+\vspace{8.5mm}\includegraphics[scale=0.8]{hw02_plot_nb.pdf}
+\end{center}
 \end{flushleft}
 \vspace*{2mm}
 
-% PROBLEM 2
+\pagebreak
+
+\color{darkgray}
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework I - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\color{black}
+
+\begin{center}
+\textbf{ }
+\end{center}
+
+% PROBLEM 6
 \begin{flushleft}
-\textbf{2)}
-From the plot above, it can be surmised that the decision tree is overfitting the training data, seeing as the training accuracy is always 1.
+\textbf{6)}
+  The statement is true. If we calculate the p-value of the t-test in a paired setting, as is the case here (estimates of the same size), between the $kNN$ predictor and the Naïve Bayes predictor, for the hypothesis "$kNN > NB$", the result is approximately $0.001317$. Thus, we observe that the performance of the $kNN$ predictor is better than the $NB$ predictor with statistical significance below a confidence level of $0.05$, since $0.001317 < 0.05$.
+  \par
+  In fact, a simple analysis of the confusion matrices would be enough to realize that $kNN$ is a classifier with greater prediction accuracy. If we add the true positives to the true negatives in both matrices presented above, which corresponds to the value of correctly classified observations in relation to the real value, we conclude that the kNN has a higher value, therefore, it is more precise.
+\end{flushleft}
 
-Overfitting is a phenomenon which occurs when the learning system fits the given training data to such an extent that it is 100\% accurate in predicting the outcomes of the trained data, if run through the system again.
-
-This has happened in our case because the generated decision tree has no depth limit and, as such, perfectly fits all samples in the training data set. Therefore, it covers every single case, resulting in a training accuracy of 1.
-
-The results show that the mean of the testing accuracy values is approximately 0.794, which is considerably less than 1. This is legitimate, given that the tree has been trained with the training data to such a great deal of detail that it cannot accurately predict the outcomes of the untrained data. This is one of the biggest problems with Overfitting.
-
-Arguably, the top 250 features yield nearly as much discriminative information as the original feature space.
+% PROBLEM 7
+\vspace{2.5mm}
+\begin{flushleft}
+\textbf{7)}
+  k-Nearest-Neighbors yields greater predictive accuracy than Naïve Bayes, according to our measurements. We speculate that this may be due to three reasons. The first one is that the value for $k$ in $kNN$ is sufficiently large to achieve a tight fit to the data. Additionally, since the data were normalized, $kNN$ was better suited as a classifier. Lastly, seeing as Naïve Bayes is a linear classifier, we suspect that the data might not have been linearly separate to enough of an extent to enable Naïve Bayes to outperform $kNN$ accuracy-wise.
 \end{flushleft}
 
 \pagebreak
@@ -371,9 +384,9 @@ Arguably, the top 250 features yield nearly as much discriminative information a
     keywordstyle=\color{codepurple},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codered},
-    emph=[0]{loadarff,train_test_split,mutual_info_classif,accuracy_score,drop,fit_transform,transform,fit,predict,append,plot,xlabel,ylabel,title,legend,show},
+    emph=[0]{loadarff,confusion_matrix,accuracy_score,ttest_rel,drop,fit_transform,zeros,split,fit,predict,append,plot,set_title,print},
     emphstyle=[0]\color{codeyellow},
-    emph=[1]{scipy,io,arff,pandas,pd,DataFrame,sklearn,preprocessing,LabelEncoder,model_selection,feature_selection,SelectKBest,tree,DecisionTreeClassifier,metrics,functools,partial,matplotlib,pyplot},
+    emph=[1]{scipy,io,arff,pandas,pd,DataFrame,sklearn,preprocessing,numpy,np,LabelEncoder,model_selection,StratifiedKFold,neighbors,KNeighborsClassifier,naive_bayes,GaussianNB,metrics,ConfusionMatrixDisplay,stats},
     emphstyle=[1]\color{codeForestGreen},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,
@@ -391,6 +404,8 @@ Arguably, the top 250 features yield nearly as much discriminative information a
 \lstset{style=mystyle}
 
 \hspace{-8.25mm}
-
+\begin{tabularx}{1.09\textwidth}{X}
+  \lstinputlisting{hw02.py}
+\end{tabularx}
 
 \end{document}
