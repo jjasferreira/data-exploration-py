@@ -1,0 +1,141 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,tabularx,geometry,graphicx,multirow,tikz,listings,xfrac}
+
+\usetikzlibrary{positioning}
+\newdimen\nodeDist
+\nodeDist=35mm
+\geometry{a4paper, left=20mm, top=20mm}
+\graphicspath{{../imgs/}}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+\title{Aprendizagem 2021/22 Homework III - Group 66}
+\author{João Cardoso, 99251. José João Ferreira, 99259}
+
+\begin{document}
+
+\color{darkgray}
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\color{black}
+
+\begin{center}
+\textbf{I. Pen-and-paper}
+\end{center}
+
+% PROBLEM 1
+\begin{flushleft}
+\textbf{1)}
+\small
+\end{flushleft}
+\normalsize
+
+% PROBLEM 2
+\begin{flushleft}
+\textbf{2)}
+\small
+\end{flushleft}
+\normalsize
+
+% PROBLEM 3
+\begin{flushleft}
+\textbf{3)}
+\small
+$ a^{[1]} = w^{[1]}x + b^{[1]} $ \hspace{5mm} $ a^{[1]} = w^{[1]}x + b^{[1]} $
+\begin{flalign*}
+  \fbox{X = 0.8} \\
+  Z = 24 \\
+  & a^{[1]} = w^{[1]}x + b^{[1]} &&\\
+  & h^{[1]} = f(a^{[1]}) &&\\
+  & a^{[2]} = w^{[2]}h^{[1]} + b^{[2]} &&\\
+  & h^{[2]} = f(a^{[2]}) = \hat{z} &&\\
+  h^{[1]} &= \begin{bmatrix} 0.5 \\ 0.5 \end{bmatrix} &&\\
+  &\mu = \frac{\sum(y_{3\_i})}{size(v)} = 0.84 &&\\
+  &\sigma^2 = \frac{\sum(y_{3\_i} - \mu)^2}{size(v) - 1} = 0.063 &&\\
+  &P(y_3 = y_{3\_new} | class = P) = \underline{N(y_{3\_new} | \mu = 0.84, \sigma^2 = 0.063)} &&\\
+  \end{flalign*}
+\end{flushleft}
+\normalsize
+
+% PROBLEM 4
+\begin{flushleft}\vspace{2mm}
+\textbf{4)}
+A
+\end{flushleft}
+
+\pagebreak
+
+\color{darkgray}
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\color{black}
+
+\begin{center}
+\textbf{II. Programming and critical analysis}
+\end{center}
+
+% PROBLEM 5
+\begin{flushleft}
+\textbf{5)} \par
+\begin{center}
+\end{center}
+\end{flushleft}
+\vspace*{2mm}
+
+\pagebreak
+
+\color{darkgray}
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\color{black}
+
+\begin{center}
+\textbf{III. Appendix}
+\end{center}
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codered}{rgb}{0.75,0.25,0}
+\definecolor{codeyellow}{rgb}{0.55,0.55,0.0}
+\definecolor{codeForestGreen}{rgb}{0.05,0.65,0.55}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codered},
+    emph=[0]{loadarff,confusion_matrix,accuracy_score,ttest_rel,drop,fit_transform,zeros,split,fit,predict,append,plot,set_title,print},
+    emphstyle=[0]\color{codeyellow},
+    emph=[1]{scipy,io,arff,pandas,pd,DataFrame,sklearn,preprocessing,numpy,np,LabelEncoder,model_selection,StratifiedKFold,neighbors,KNeighborsClassifier,naive_bayes,GaussianNB,metrics,ConfusionMatrixDisplay,stats},
+    emphstyle=[1]\color{codeForestGreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=7.5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python,
+    morekeywords={as}}
+\lstset{style=mystyle}
+
+\end{document}
