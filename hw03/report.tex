@@ -8,6 +8,8 @@
 \geometry{a4paper, left=20mm, top=20mm}
 \graphicspath{{../imgs/}}
 \renewcommand\tabularxcolumn[1]{m{#1}}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+\newcommand{\circo}{~\raisebox{1pt}{\tikz \draw[line width=0.5pt] circle(1.1pt);}~}
 
 \title{Aprendizagem 2021/22 Homework III - Group 66}
 \author{João Cardoso, 99251. José João Ferreira, 99259}
@@ -44,31 +46,92 @@
 % PROBLEM 3
 \begin{flushleft}
 \textbf{3)}
+\par $\sbullet$ \underline{1st step: forward propagation} \par
 \small
-$ a^{[1]} = w^{[1]}x + b^{[1]} $ \hspace{5mm} $ a^{[1]} = w^{[1]}x + b^{[1]} $
+\begin{tabularx}{1.09\textwidth}{X X}
+  % Formulas
+  $ f = e^{0.1(x)} $ \par \vspace{1mm}
+  $ w^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \quad b^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \quad w^{[2]} = \begin{pmatrix} 1 & 1 \end{pmatrix} \quad b^{[2]} = \begin{pmatrix} 1 \end{pmatrix} $ \par \vspace{1mm}
+  $ a^{[1]} = w^{[1]}x + b^{[1]} $ \par \vspace{1mm}
+  $ h^{[1]} = f(a^{[1]}) $ \par \vspace{1mm}
+  $ a^{[2]} = w^{[2]}h^{[1]} + b^{[2]} $ \par \vspace{1mm}
+  $ h^{[2]} = f(a^{[2]}) $ \par \vspace{1mm}
+  & % X_1
+  $ \boxed{x_1 = 0.8} \quad z_1 = 24 $ \par \vspace{1mm}
+  $ a^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \begin{pmatrix} 0.8 \end{pmatrix} + \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1.8 \\ 1.8 \end{pmatrix} $ \par \vspace{1mm}
+  $ h^{[1]} = f \begin{pmatrix} 1.8 \\ 1.8 \end{pmatrix} = \begin{pmatrix} e^{0.1(1.8)} \\ e^{0.1(1.8)} \end{pmatrix} \approx \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} $ \par \vspace{1mm}
+  $ a^{[2]} = \begin{pmatrix} 1 & 1 \end{pmatrix} \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} + \begin{pmatrix} 1 \end{pmatrix} = 3.394435 $ \par \vspace{1mm}
+  $ h^{[2]} = f \begin{pmatrix} 3.394435 \end{pmatrix} = e^{0.1(3.394435)} \approx 1.404166 $ \par \vspace{1mm}
+\end{tabularx}
+\begin{tabularx}{1.09\textwidth}{X X}
+  % X_2
+  $ \boxed{x_2 = 1} \quad z_2 = 20 $ \par \vspace{1mm}
+  $ a^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \begin{pmatrix} 1 \end{pmatrix} + \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 \\ 2 \end{pmatrix} $ \par \vspace{1mm}
+  $ h^{[1]} = f \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} e^{0.1(2)} \\ e^{0.1(2)} \end{pmatrix} \approx \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} $ \par \vspace{1mm}
+  $ a^{[2]} = \begin{pmatrix} 1 & 1 \end{pmatrix} \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} + \begin{pmatrix} 1 \end{pmatrix} = 3.442806 $ \par \vspace{1mm}
+  $ h^{[2]} = f \begin{pmatrix} 3.442806 \end{pmatrix} = e^{0.1(3.442806)} \approx 1.410974 $ \par \vspace{1mm}
+  & % X_3
+  $ \boxed{x_3 = 1.2} \quad z_3 = 10 $ \par \vspace{1mm}
+  $ a^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \begin{pmatrix} 1.2 \end{pmatrix} + \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 2.2 \\ 2.2 \end{pmatrix} $ \par \vspace{1mm}
+  $ h^{[1]} = f \begin{pmatrix} 2.2 \\ 2.2 \end{pmatrix} = \begin{pmatrix} e^{0.1(2.2)} \\ e^{0.1(2.2)} \end{pmatrix} \approx \begin{pmatrix} 1.246077 \\ 1.246077 \end{pmatrix} $ \par \vspace{1mm}
+  $ a^{[2]} = \begin{pmatrix} 1 & 1 \end{pmatrix} \begin{pmatrix} 1.246077 \\ 1.246077 \end{pmatrix} + \begin{pmatrix} 1 \end{pmatrix} = 3.492153 $ \par \vspace{1mm}
+  $ h^{[2]} = f \begin{pmatrix} 3.492153 \end{pmatrix} = e^{0.1(3.492153)} \approx 1.417955 $ \par \vspace{1mm}
+\end{tabularx}
+
+\normalsize $\sbullet$ \underline{2nd step: back propagation} \par \small
+\begin{align*}
+  E_k = \frac{1}{2}(z_k - h^{[2]}_k)^2 \quad\quad\quad
+  h^{[L]} = f(a^{[L]}) \quad\quad\quad
+  a^{[L]} = w^{[L]}h^{[L-1]} + b^{[L]}
+\end{align*}
+\vspace{-7.5mm}
+\begin{align*}
+  \frac{\partial E_k}{\partial h^{[2]}} = z_k - h^{[2]}_k \quad\quad\quad
+  \frac{\partial h^{[L]}}{\partial a^{[L]}} = f'(a^{[L]}) \quad\quad\quad
+  \frac{\partial a^{[L]}}{\partial w^{[L]}} = h^{[L-1]} \quad\quad\quad
+  \frac{\partial a^{[L]}}{\partial h^{[L-1]}} = w^{[L]} \quad\quad\quad
+  \frac{\partial a^{[L]}}{\partial b^{[L]}} = 1
+\end{align*}
+% dE/dw^[2]
 \begin{flalign*}
-  \fbox{X = 0.8} \\
-  Z = 24 \\
-  & a^{[1]} = w^{[1]}x + b^{[1]} &&\\
-  & h^{[1]} = f(a^{[1]}) &&\\
-  & a^{[2]} = w^{[2]}h^{[1]} + b^{[2]} &&\\
-  & h^{[2]} = f(a^{[2]}) = \hat{z} &&\\
-  h^{[1]} &= \begin{bmatrix} 0.5 \\ 0.5 \end{bmatrix} &&\\
-  &\mu = \frac{\sum(y_{3\_i})}{size(v)} = 0.84 &&\\
-  &\sigma^2 = \frac{\sum(y_{3\_i} - \mu)^2}{size(v) - 1} = 0.063 &&\\
-  &P(y_3 = y_{3\_new} | class = P) = \underline{N(y_{3\_new} | \mu = 0.84, \sigma^2 = 0.063)} &&\\
-  \end{flalign*}
+  & \frac{\partial E_k}{\partial w^{[2]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial w^{[2]}} = (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot h_k^{[1]^T} = (z_k - h^{[2]}_k) \cdot f(a^{[2]}_k) \cdot (1- f(a^{[2]})) \cdot h_k^{[1]^T} &&\\[1mm]
+  & x_1: \quad \frac{\partial E_1}{\partial w^{[2]}} = (24 - 1.404166) \cdot (1.404166) \cdot (1 - 1.404166) \cdot \begin{pmatrix} 1.197217 & 1.197217 \end{pmatrix} \approx \begin{pmatrix} -15.352513 & -15.352513 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_2}{\partial w^{[2]}} = (20 - 1.410974) \cdot (1.410974) \cdot (1 - 1.410974) \cdot \begin{pmatrix} 1.221402 & 1.221402 \end{pmatrix} \approx \begin{pmatrix} -13.165841 & -13.165841 \end{pmatrix} &&\\
+  & x_3: \quad \frac{\partial E_3}{\partial w^{[2]}} = (10 - 1.417955) \cdot (1.417955) \cdot (1 - 1.417955) \cdot \begin{pmatrix} 1.246077 & 1.246077 \end{pmatrix} \approx \begin{pmatrix} -6.337641 & -6.337641 \end{pmatrix} &&\\
+  & \frac{\partial E}{\partial w^{[2]}} = \frac{1}{3} \sum_{k = 1}^{3}\frac{\partial E_k}{\partial w^{[2]}} = \begin{pmatrix} -11.618665 & -11.618665 \end{pmatrix} &&\\
+  & \textcolor{ForestGreen}{w^{[2]}_{new}} = w^{[2]}_{old} - \eta \frac{\partial E}{\partial w^{[2]}} = \begin{pmatrix} 1 & 1 \end{pmatrix} - 0.1 \begin{pmatrix} -11.618665 & -11.618665 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 2.161867 & 2.161867 \end{pmatrix}} &&\\
+\end{flalign*}
+% dE/db^[2]
+\begin{flalign*}
+  & \frac{\partial E_k}{\partial b^{[2]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial b^{[2]}} = (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot 1 = (z_k - h^{[2]}_k) \cdot f(a^{[2]}_k) \cdot (1- f(a^{[2]}_k)) &&\\[1mm]
+  & x_1: \quad \frac{\partial E_1}{\partial b^{[2]}} = (24 - 1.404166) \cdot (1.404166) \cdot (1 - 1.404166) \approx \begin{pmatrix} -12.823501 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_2}{\partial b^{[2]}} = (20 - 1.410974) \cdot (1.410974) \cdot (1 - 1.410974) \approx \begin{pmatrix} -10.779286 \end{pmatrix} &&\\
+  & x_3: \quad \frac{\partial E_3}{\partial b^{[2]}} = (10 - 1.417955) \cdot (1.417955) \cdot (1 - 1.417955) \approx \begin{pmatrix} -5.086075 \end{pmatrix} &&\\
+  & \frac{\partial E}{\partial b^{[2]}} = \frac{1}{3} \sum_{k = 1}^{3}\frac{\partial E_k}{\partial b^{[2]}} = \begin{pmatrix} -9.562954 \end{pmatrix} &&\\
+  & \textcolor{ForestGreen}{b^{[2]}_{new}} = b^{[2]}_{old} - \eta \frac{\partial E}{\partial b^{[2]}} = \begin{pmatrix} 1 \end{pmatrix} - 0.1 \begin{pmatrix} -9.562954 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 1.956295 \end{pmatrix}} &&\\
+\end{flalign*}
+% dE/dw^[1]
+\begin{flalign*}
+  & \frac{\partial E_k}{\partial w^{[1]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial h^{[1]}_k} \frac{\partial h^{[1]}_k}{\partial a^{[1]}_k} \frac{\partial a^{[1]}_k}{\partial w^{[1]}} = w^{[2]^T} \cdot (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot f(a^{[1]}_k) \cdot (1 -f(a^{[1]}_k)) \cdot x^T_k &&\\[1mm]
+  & x_1: \quad \frac{\partial E_1}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-12.823501) \circo \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} \circo \begin{pmatrix} 0.197217 \\ 0.197217 \end{pmatrix} \cdot \begin{pmatrix} 0.8 \end{pmatrix} \approx \begin{pmatrix} -2.422221 \\ -2.422221 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_2}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-10.779286) \circo \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} \circo \begin{pmatrix} 0.221402 \\ 0.221402 \end{pmatrix} \cdot \begin{pmatrix} 1 \end{pmatrix} \approx \begin{pmatrix} -2.914944 \\ -2.914944 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_3}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-5.086075) \circo \begin{pmatrix} 1.246077 \\ 1.246077 \end{pmatrix} \circo \begin{pmatrix} 0.246077 \\ 0.246077 \end{pmatrix} \cdot \begin{pmatrix} 1.2 \end{pmatrix} \approx \begin{pmatrix} -1.871457 \\ -1.871457 \end{pmatrix} &&\\
+  & \frac{\partial E}{\partial w^{[1]}} = \frac{1}{3} \sum_{k = 1}^{3}\frac{\partial E_k}{\partial w^{[1]}} = \begin{pmatrix} -2.402874 \\ -2.402874 \end{pmatrix} &&\\
+  & \textcolor{ForestGreen}{w^{[1]}_{new}} = w^{[1]}_{old} - \eta \frac{\partial E}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} - 0.1 \begin{pmatrix} -2.402874 \\ -2.402874 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 1.240287 \\ 1.240287 \end{pmatrix}} &&\\
+\end{flalign*}
+% dE/db^[1]
+\begin{flalign*}
+  & \frac{\partial E_k}{\partial b^{[1]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial h^{[1]}_k} \frac{\partial h^{[1]}_k}{\partial a^{[1]}_k} \frac{\partial a^{[1]}_k}{\partial b^{[1]}} = w^{[2]^T} \cdot (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot f(a^{[1]}_k) \cdot (1 -f(a^{[1]}_k)) \cdot 1 &&\\[1mm]
+  & x_1: \quad \frac{\partial E_1}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-12.823501) \circo \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} \circo \begin{pmatrix} 0.197217 \\ 0.197217 \end{pmatrix} \approx \begin{pmatrix} -3.027777 \\ -3.027777 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_2}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-10.779286) \circo \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} \circo \begin{pmatrix} 0.221402 \\ 0.221402 \end{pmatrix} \approx \begin{pmatrix} -2.914944 \\ -2.914944 \end{pmatrix} &&\\
+  & x_2: \quad \frac{\partial E_3}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-5.086075) \circo \begin{pmatrix} 1.246077 \\ 1.246077 \end{pmatrix} \circo \begin{pmatrix} 0.246077 \\ 0.246077 \end{pmatrix} \approx \begin{pmatrix} -1.559548 \\ -1.559548 \end{pmatrix} &&\\
+  & \frac{\partial E}{\partial b^{[1]}} = \frac{1}{3} \sum_{k = 1}^{3}\frac{\partial E_k}{\partial b^{[1]}} = \begin{pmatrix} -2.500756 \\ -2.500756 \end{pmatrix} &&\\
+  & \textcolor{ForestGreen}{b^{[1]}_{new}} = b^{[1]}_{old} - \eta \frac{\partial E}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} - 0.1 \begin{pmatrix} -2.500756 \\ -2.500756 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 1.250076 \\ 1.250076 \end{pmatrix}} &&\\
+\end{flalign*}
 \end{flushleft}
 \normalsize
 
-% PROBLEM 4
-\begin{flushleft}\vspace{2mm}
-\textbf{4)}
-A
-\end{flushleft}
-
 \pagebreak
-
 \color{darkgray}
 \hspace{-8.25mm}
 \begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
@@ -82,16 +145,29 @@ A
 \textbf{II. Programming and critical analysis}
 \end{center}
 
-% PROBLEM 5
+% PROBLEM 4
 \begin{flushleft}
-\textbf{5)} \par
+\textbf{4)} \par
 \begin{center}
 \end{center}
 \end{flushleft}
-\vspace*{2mm}
+
+% PROBLEM 5
+\begin{flushleft}
+\textbf{5)}
+\end{flushleft}
+
+% PROBLEM 6
+\begin{flushleft}
+\textbf{6)}
+\end{flushleft}
+
+% PROBLEM 7
+\begin{flushleft}
+\textbf{7)}
+\end{flushleft}
 
 \pagebreak
-
 \color{darkgray}
 \hspace{-8.25mm}
 \begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
