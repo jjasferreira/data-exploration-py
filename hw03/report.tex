@@ -7,7 +7,6 @@
 \nodeDist=35mm
 \geometry{a4paper, left=20mm, top=20mm}
 \graphicspath{{../imgs/}}
-\renewcommand\tabularxcolumn[1]{m{#1}}
 \newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
 \newcommand{\circo}{~\raisebox{1pt}{\tikz \draw[line width=0.5pt] circle(1.1pt);}~}
 
@@ -18,11 +17,13 @@
 
 \color{darkgray}
 \hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
 \begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
   \includegraphics[scale=0.2]{tecnico.pdf} &
   \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
   João Cardoso, 99251 \par José João Ferreira, 99259
 \end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
 \color{black}
 
 \begin{center}
@@ -33,15 +34,158 @@
 \begin{flushleft}
 \textbf{1)}
 \small
+\begin{tabularx}{1.09\textwidth}{>{\hsize=.65\hsize}X X X}
+  \begin{tabular}{c|c|c}
+    $j$ & $x_j$ & $z_j$ \\ \hline
+    1   & 0.8   & 24    \\
+    2   & 1     & 20    \\
+    3   & 1.2   & 10    \\
+    4   & 1.4   & 13    \\
+    5   & 1.6   & 12   
+  \end{tabular}
+  &
+  \vspace{-23.5mm}{\begin{flalign*}
+    (\hat{z}, w) & = \sum_{j=0}^3 w_j \phi_j(x) &&\\
+    & = w_0 + w_1x + w_2x^2 + w_3x^3 &&\\
+  \end{flalign*}
+  \vspace{-15mm}\begin{flalign*}
+    Xw = Z & \Leftrightarrow X^TXw = X^TZ &&\\
+    & \Leftrightarrow (X^TX)^{-1}X^TXw = (X^TX)^{-1}X^TZ &&\\
+    & \Leftrightarrow w = (X^TX)^{-1}X^TZ &&\\
+  \end{flalign*}
+  \vspace{-15mm}\begin{flalign*}
+    & \text{Ridge regression:} \quad w = (X^TX + \lambda I)^{-1}X^TZ &&\\
+  \end{flalign*}}
+  &
+  \vspace{-20mm}{\begin{flalign*}
+    && X = \begin{pmatrix}
+      1 & 0.8 & 0.8^2 & 0.8^3 \\
+      1 & 1 & 1^2 & 1^3 \\
+      1 & 1.2 & 1.2^2 & 1.2^3 \\
+      1 & 1.4 & 1.4^2 & 1.4^3 \\
+      1 & 1.6 & 1.6^2 & 1.6^3
+    \end{pmatrix}
+  \end{flalign*}} \par \hspace{4.25mm}
+  $ \lambda = 2 $
+\end{tabularx}
+
+\vspace{-12.5mm}\begin{flalign*}
+  & X^TX = \begin{pmatrix}
+    1 & 1 & 1 & 1 & 1 \\
+    0.8 & 1 & 1.2 & 1.4 & 1.6 \\
+    0.64 & 1 & 1.44 & 1.96 & 2.56 \\
+    0.512 & 1 & 1.728 & 2.744 & 4.096
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 & 0.8 & 0.64 & 0.512 \\
+    1 & 1 & 1 & 1 \\
+    1 & 1.2 & 1.44 & 1.728 \\
+    1 & 1.4 & 1.96 & 2.744 \\
+    1 & 1.6 & 2.56 & 4.096
+  \end{pmatrix} =
+  \begin{pmatrix}
+    5 & 6 & 7.6 & 10.08 \\
+    6 & 7.6 & 10.08 & 13.8784 \\
+    7.6 & 10.08 & 13.8784 & 19.68 \\
+    10.08 & 13.8784 & 19.68 & 28.5549
+  \end{pmatrix} &&\\
+\end{flalign*}
+
+\vspace{-12.5mm}\begin{flalign*}
+  & X^TX + \lambda I = \begin{pmatrix}
+    5 & 6 & 7.6 & 10.08 \\
+    6 & 7.6 & 10.08 & 13.8784 \\
+    7.6 & 10.08 & 13.8784 & 19.68 \\
+    10.08 & 13.8784 & 19.68 & 28.5549
+  \end{pmatrix} +
+  \begin{pmatrix}
+    2 & 0 & 0 & 0 \\
+    0 & 2 & 0 & 0 \\
+    0 & 0 & 2 & 0 \\
+    0 & 0 & 0 & 2 \\
+  \end{pmatrix} =
+  \begin{pmatrix}
+    7 & 6 & 7.6 & 10.08 \\
+    6 & 9.6 & 10.08 & 13.8784 \\
+    7.6 & 10.08 & 15.8784 & 19.68 \\
+    10.08 & 13.8784 & 19.68 & 30.5549
+  \end{pmatrix} &&\\
+\end{flalign*}
+
+\vspace{-12.5mm}\begin{flalign*}
+  w &= \begin{pmatrix}
+    7 & 6 & 7.6 & 10.08 \\
+    6 & 9.6 & 10.08 & 13.8784 \\
+    7.6 & 10.08 & 15.8784 & 19.68 \\
+    10.08 & 13.8784 & 19.68 & 30.5549
+  \end{pmatrix}^{-1}
+  \begin{pmatrix}
+    1 & 1 & 1 & 1 & 1 \\
+    0.8 & 1 & 1.2 & 1.4 & 1.6 \\
+    0.64 & 1 & 1.44 & 1.96 & 2.56 \\
+    0.512 & 1 & 1.728 & 2.744 & 4.096
+  \end{pmatrix}
+  \begin{pmatrix}
+    24 \\ 20 \\ 10 \\ 13 \\ 12
+  \end{pmatrix} &&\\
+  &= \begin{pmatrix}
+    0.341688 & -0.121426 & -0.074902 & -0.009325 \\
+    -0.121426 & 0.389208 & -0.096677 & -0.074456 \\
+    -0.074902 & -0.096677 & 0.372577 & -0.171350 \\
+    -0.009325 & -0.074456 & -0.171350 & 0.179987
+  \end{pmatrix}
+  \begin{pmatrix}
+    79 \\ 88.6 \\ 105.96 \\ 134.392
+  \end{pmatrix} =
+  \textcolor{ForestGreen}{\begin{pmatrix}
+    7.045076 \\ 4.640926 \\ 1.967336 \\ -1.300877
+  \end{pmatrix}} &&\\
+\end{flalign*}
 \end{flushleft}
 \normalsize
 
 % PROBLEM 2
 \begin{flushleft}
+\vspace{-2mm}
 \textbf{2)}
 \small
+\vspace{-2mm}\begin{flalign*}
+  & \hat{z} = w_0 + w_1x + w_2x^2 + w_3x^3 \quad \Longrightarrow \quad \hat{Z} = Xw &&\\[2mm]
+  & \hat{Z} = \begin{pmatrix}
+    1 & 0.8 & 0.64 & 0.512 \\
+    1 & 1 & 1 & 1 \\
+    1 & 1.2 & 1.44 & 1.728 \\
+    1 & 1.4 & 1.96 & 2.744 \\
+    1 & 1.6 & 2.56 & 4.096
+  \end{pmatrix}
+  \begin{pmatrix}
+    7.045076 \\ 4.640926 \\ 1.967336 \\ -1.300877
+  \end{pmatrix} =
+  \begin{pmatrix}
+    11.350863 \\ 12.352461 \\ 13.199236 \\ 13.828744 \\ 14.178546
+  \end{pmatrix} &&\\[2mm]
+  & Z^T = \begin{pmatrix} 24 & 20 & 10 & 13 & 12 \end{pmatrix}, \quad \hat{Z}^T = \begin{pmatrix} 11.35086 & 12.35246 & 13.19924 & 13.82874 & 14.17855 \end{pmatrix} &&\\
+  & \sum_{i = 1}^n (z_i - \hat{z}_i)^2 = (24 - 11.35086)^2 + (20 - 12.35246)^2 + (10 - 13.19924)^2 + (13 - 13.82874)^2 + (12 - 14.17855)^2 &&\\[-2mm]
+  & RMSE(z, \hat{z}) = \sqrt{\frac{1}{n}\sum_{i = 1}^n (z_i - \hat{z}_i)^2} \quad \Longrightarrow \quad RMSE(z, \hat{z}) = \sqrt{\frac{1}{5} \times 234.153637} \approx \textcolor{ForestGreen}{6.843298} &&\\
+\end{flalign*}
 \end{flushleft}
 \normalsize
+
+\pagebreak
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{}
+\end{center}
 
 % PROBLEM 3
 \begin{flushleft}
@@ -49,7 +193,7 @@
 \par $\sbullet$ \underline{1st step: forward propagation} \par
 \small
 \begin{tabularx}{1.09\textwidth}{X X}
-  % Formulas
+  \vspace{1.5mm}% Formulas
   $ f = e^{0.1(x)} $ \par \vspace{1mm}
   $ w^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \quad b^{[1]} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \quad w^{[2]} = \begin{pmatrix} 1 & 1 \end{pmatrix} \quad b^{[2]} = \begin{pmatrix} 1 \end{pmatrix} $ \par \vspace{1mm}
   $ a^{[1]} = w^{[1]}x + b^{[1]} $ \par \vspace{1mm}
@@ -101,6 +245,23 @@
   & \frac{\partial E}{\partial w^{[2]}} = \frac{1}{3} \sum_{k = 1}^{3}\frac{\partial E_k}{\partial w^{[2]}} = \begin{pmatrix} -11.618665 & -11.618665 \end{pmatrix} &&\\
   & \textcolor{ForestGreen}{w^{[2]}_{new}} = w^{[2]}_{old} - \eta \frac{\partial E}{\partial w^{[2]}} = \begin{pmatrix} 1 & 1 \end{pmatrix} - 0.1 \begin{pmatrix} -11.618665 & -11.618665 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 2.161867 & 2.161867 \end{pmatrix}} &&\\
 \end{flalign*}
+
+\pagebreak
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{}
+\end{center}
+
 % dE/db^[2]
 \begin{flalign*}
   & \frac{\partial E_k}{\partial b^{[2]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial b^{[2]}} = (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot 1 = (z_k - h^{[2]}_k) \cdot f(a^{[2]}_k) \cdot (1- f(a^{[2]}_k)) &&\\[1mm]
@@ -111,7 +272,7 @@
   & \textcolor{ForestGreen}{b^{[2]}_{new}} = b^{[2]}_{old} - \eta \frac{\partial E}{\partial b^{[2]}} = \begin{pmatrix} 1 \end{pmatrix} - 0.1 \begin{pmatrix} -9.562954 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 1.956295 \end{pmatrix}} &&\\
 \end{flalign*}
 % dE/dw^[1]
-\begin{flalign*}
+\vspace{-3.75mm}\begin{flalign*}
   & \frac{\partial E_k}{\partial w^{[1]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial h^{[1]}_k} \frac{\partial h^{[1]}_k}{\partial a^{[1]}_k} \frac{\partial a^{[1]}_k}{\partial w^{[1]}} = w^{[2]^T} \cdot (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot f(a^{[1]}_k) \cdot (1 -f(a^{[1]}_k)) \cdot x^T_k &&\\[1mm]
   & x_1: \quad \frac{\partial E_1}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-12.823501) \circo \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} \circo \begin{pmatrix} 0.197217 \\ 0.197217 \end{pmatrix} \cdot \begin{pmatrix} 0.8 \end{pmatrix} \approx \begin{pmatrix} -2.422221 \\ -2.422221 \end{pmatrix} &&\\
   & x_2: \quad \frac{\partial E_2}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-10.779286) \circo \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} \circo \begin{pmatrix} 0.221402 \\ 0.221402 \end{pmatrix} \cdot \begin{pmatrix} 1 \end{pmatrix} \approx \begin{pmatrix} -2.914944 \\ -2.914944 \end{pmatrix} &&\\
@@ -120,7 +281,7 @@
   & \textcolor{ForestGreen}{w^{[1]}_{new}} = w^{[1]}_{old} - \eta \frac{\partial E}{\partial w^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} - 0.1 \begin{pmatrix} -2.402874 \\ -2.402874 \end{pmatrix} = \textcolor{ForestGreen}{\begin{pmatrix} 1.240287 \\ 1.240287 \end{pmatrix}} &&\\
 \end{flalign*}
 % dE/db^[1]
-\begin{flalign*}
+\vspace{-3.75mm}\begin{flalign*}
   & \frac{\partial E_k}{\partial b^{[1]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial h^{[1]}_k} \frac{\partial h^{[1]}_k}{\partial a^{[1]}_k} \frac{\partial a^{[1]}_k}{\partial b^{[1]}} = w^{[2]^T} \cdot (z_k - h^{[2]}_k) \cdot f'(a^{[2]}_k) \cdot f(a^{[1]}_k) \cdot (1 -f(a^{[1]}_k)) \cdot 1 &&\\[1mm]
   & x_1: \quad \frac{\partial E_1}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-12.823501) \circo \begin{pmatrix} 1.197217 \\ 1.197217 \end{pmatrix} \circo \begin{pmatrix} 0.197217 \\ 0.197217 \end{pmatrix} \approx \begin{pmatrix} -3.027777 \\ -3.027777 \end{pmatrix} &&\\
   & x_2: \quad \frac{\partial E_2}{\partial b^{[1]}} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (-10.779286) \circo \begin{pmatrix} 1.221402 \\ 1.221402 \end{pmatrix} \circo \begin{pmatrix} 0.221402 \\ 0.221402 \end{pmatrix} \approx \begin{pmatrix} -2.914944 \\ -2.914944 \end{pmatrix} &&\\
@@ -134,11 +295,13 @@
 \pagebreak
 \color{darkgray}
 \hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
 \begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
   \includegraphics[scale=0.2]{tecnico.pdf} &
   \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
   João Cardoso, 99251 \par José João Ferreira, 99259
 \end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
 \color{black}
 
 \begin{center}
@@ -168,13 +331,15 @@
 \end{flushleft}
 
 \pagebreak
-\color{darkgray}
 \hspace{-8.25mm}
+\color{darkgray}
+\renewcommand\tabularxcolumn[1]{m{#1}}
 \begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
   \includegraphics[scale=0.2]{tecnico.pdf} &
   \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
   João Cardoso, 99251 \par José João Ferreira, 99259
 \end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
 \color{black}
 
 \begin{center}
