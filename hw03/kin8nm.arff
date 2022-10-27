@@ -1,4 +1,4 @@
-% This is data set is concerned with the forward kinematics of an 8 link
+% This data set is concerned with the forward kinematics of an 8 link
 % robot arm. Among the existing variants of this data set we have used
 % the variant 8nm, which is known to be highly non-linear and medium noisy.
 % Characteristics: 8192 cases, 9 attributes (0 nominal, 9 continuous). 
