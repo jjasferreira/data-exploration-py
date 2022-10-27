@@ -245,6 +245,8 @@
   & \frac{\partial E}{\partial w^{[2]}} = \sum_{k = 1}^{3}\frac{\partial E_k}{\partial w^{[2]}} = \begin{pmatrix} -8.518481 & -8.518481 \end{pmatrix} &&\\
   & \textcolor{ForestGreen}{w^{[2]}_{new}} = w^{[2]}_{old} - \eta \frac{\partial E}{\partial w^{[2]}} = \begin{pmatrix} 1 & 1 \end{pmatrix} - 0.1 \begin{pmatrix} -8.518481 & -8.518481 \end{pmatrix} \approx \textcolor{ForestGreen}{\begin{pmatrix} 1.851848 & 1.851848 \end{pmatrix}} &&\\
 \end{flalign*}
+\end{flushleft}
+\normalsize
 
 \pagebreak
 \color{darkgray}
@@ -262,6 +264,7 @@
 \textbf{}
 \end{center}
 
+\begin{flushleft}\small
 % dE/db^[2]
 \begin{flalign*}
   & \frac{\partial E_k}{\partial b^{[2]}} = \frac{\partial E_k}{\partial h^{[2]}_k} \frac{\partial h^{[2]}_k}{\partial a^{[2]}_k} \frac{\partial a^{[2]}_k}{\partial b^{[2]}} = (h^{[2]}_k - z_k) \cdot f'(a^{[2]}_k) \cdot 1 &&\\[1mm]
@@ -310,18 +313,55 @@
 
 % PROBLEM 4
 \begin{flushleft}
-\textbf{4)} \par
-\begin{center}
-\end{center}
+\textbf{4)}
+\vspace{-3mm}\begin{flalign*}
+  & \text{Linear Regression (Ridge regularization):} && MAE_{LRRR} = 0.162830 &&\\
+  & \text{MLP Regressor (early stopping):} && MAE_{MLP1} = 0.068041 &&\\
+  & \text{MLP Regressor (no early stopping):} && MAE_{MLP2} = 0.097807 &&\\
+\end{flalign*}
 \end{flushleft}
 
 % PROBLEM 5
 \begin{flushleft}
-\textbf{5)}
+\vspace{-3mm}
+\textbf{5)}\vspace{-1mm}
+\begin{tabularx}{1.09\textwidth} {X X}
+  \hspace{-7.25mm}\includegraphics[scale=0.6]{hw03_plot_linreg_box} \par
+  \vspace{-2mm}\hspace{-7.25mm}\includegraphics[scale=0.6]{hw03_plot_mlp1_box} \par
+  &
+  \hspace{-4.75mm}\includegraphics[scale=0.6]{hw03_plot_linreg_hist} \par
+  \vspace{-2mm}\hspace{-4.75mm}\includegraphics[scale=0.6]{hw03_plot_mlp1_hist} \par
+\end{tabularx}
+\end{flushleft}
+
+\pagebreak
+\hspace{-8.25mm}
+\color{darkgray}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework III - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{}
+\end{center}
+
+\begin{flushleft}
+\vspace{-10mm}
+\begin{tabularx}{1.09\textwidth} {X X}
+    \vspace{-2mm}\hspace{-7.25mm}\includegraphics[scale=0.6]{hw03_plot_mlp2_box}
+    &
+    \vspace{-2mm}\hspace{-4.75mm}\includegraphics[scale=0.6]{hw03_plot_mlp2_hist} 
+\end{tabularx}
 \end{flushleft}
 
 % PROBLEM 6
 \begin{flushleft}
+\vspace{-2mm}
 \textbf{6)}
 \end{flushleft}
 
@@ -360,9 +400,9 @@
     keywordstyle=\color{codepurple},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codered},
-    emph=[0]{loadarff,confusion_matrix,accuracy_score,ttest_rel,drop,fit_transform,zeros,split,fit,predict,append,plot,set_title,print},
+    emph=[0]{loadarff,train_test_split,mean_absolute_error,drop,print,format,abs,boxplot,title,ylabel,show,hist,xlabel},
     emphstyle=[0]\color{codeyellow},
-    emph=[1]{scipy,io,arff,pandas,pd,DataFrame,sklearn,preprocessing,numpy,np,LabelEncoder,model_selection,StratifiedKFold,neighbors,KNeighborsClassifier,naive_bayes,GaussianNB,metrics,ConfusionMatrixDisplay,stats},
+    emph=[1]{pandas,pd,scipy,io,arff,sklearn,model_selection,linear_model,Ridge,neural_network,MLPRegressor,metrics,matplotlib,pyplot,DataFrame,range,dict},
     emphstyle=[1]\color{codeForestGreen},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,
@@ -378,5 +418,10 @@
     language=Python,
     morekeywords={as}}
 \lstset{style=mystyle}
+
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth}{X}
+  \lstinputlisting{hw03.py}
+\end{tabularx}
 
 \end{document}
