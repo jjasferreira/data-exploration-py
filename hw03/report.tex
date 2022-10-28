@@ -361,13 +361,25 @@
 
 % PROBLEM 6
 \begin{flushleft}
-\vspace{-2mm}
+\vspace{-4mm}
 \textbf{6)}
+\vspace{-3mm}\begin{flalign*}
+  & \text{MLP Regressor (early stopping):} && \#iterations_{MLP1} = 452 &&\\
+  & \text{MLP Regressor (no early stopping):} && \#iterations_{MLP2} = 77 &&\\
+\end{flalign*}
 \end{flushleft}
 
 % PROBLEM 7
 \begin{flushleft}
+\vspace{-2mm}
 \textbf{7)}
+The early-stopping variant stops convergence before the Multilayer Perceptron overfits the data, by dividing the training observations into two subsets, the training and validation sets. Instead of trying to minimize the training-sample error, it tries to minimize the validation-sample error and stop at the optimal moment, which is when the testing error increases with a few iterations, to avoid risk of overfitting.
+
+This, in essence, means that we will not take into account all the initial training observations to calculate the error of the multilayer perceptron. We will, instead, use a portion of those observations, the so called validation set.
+
+The MLP with early stopping (\textit{MLP1}), according to the data acquired above, has a substantially higher number of iterations than its counterpart (\textit{MLP2}).
+The validation set is a different set from the training one, so one of the reasons that could be leading to this is that this validation set is taking longer to converge.
+Thus, although the number of training epochs is, in theory, smaller when using the early-stopping method, the number of iterations is larger.
 \end{flushleft}
 
 \pagebreak
