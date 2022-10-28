@@ -1,0 +1,141 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,tabularx,geometry,graphicx,multirow,tikz,listings,xfrac}
+
+\usetikzlibrary{positioning}
+\newdimen\nodeDist
+\nodeDist=35mm
+\geometry{a4paper, left=20mm, top=20mm}
+\graphicspath{{../imgs/}}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+\newcommand{\circo}{~\raisebox{1pt}{\tikz \draw[line width=0.5pt] circle(1.1pt);}~}
+
+\title{Aprendizagem 2021/22 Homework IV - Group 66}
+\author{João Cardoso, 99251. José João Ferreira, 99259}
+
+\begin{document}
+
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{I. Pen-and-paper}
+\end{center}
+
+% PROBLEM 1
+\begin{flushleft}
+\textbf{1)}
+\small
+\end{flushleft}
+\normalsize
+
+% PROBLEM 2
+\begin{flushleft}
+\textbf{2)}
+\par\textbf{a.}
+\small
+\normalsize
+\par\textbf{b.}
+\small
+\end{flushleft}
+\normalsize
+
+\pagebreak
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{II. Programming and critical analysis}
+\end{center}
+
+% PROBLEM 1
+\begin{flushleft}
+\textbf{1)}
+\end{flushleft}
+
+% PROBLEM 2
+\begin{flushleft}
+\textbf{2)}
+\end{flushleft}
+
+% PROBLEM 3
+\begin{flushleft}
+\textbf{3)}
+\end{flushleft}
+
+% PROBLEM 4
+\begin{flushleft}
+\textbf{4)}
+\end{flushleft}
+
+\pagebreak
+\hspace{-8.25mm}
+\color{darkgray}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf} &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+\textbf{III. Appendix}
+\end{center}
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codered}{rgb}{0.75,0.25,0}
+\definecolor{codeyellow}{rgb}{0.55,0.55,0.0}
+\definecolor{codeForestGreen}{rgb}{0.05,0.65,0.55}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codered},
+    emph=[0]{loadarff,train_test_split,mean_absolute_error,drop,print,format,abs,boxplot,title,ylabel,show,hist,xlabel},
+    emphstyle=[0]\color{codeyellow},
+    emph=[1]{pandas,pd,scipy,io,arff,sklearn,model_selection,linear_model,Ridge,neural_network,MLPRegressor,metrics,matplotlib,pyplot,DataFrame,range,dict},
+    emphstyle=[1]\color{codeForestGreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=7.5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python,
+    morekeywords={as}}
+\lstset{style=mystyle}
+
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth}{X}
+  \lstinputlisting{hw04.py}
+\end{tabularx}
+
+\end{document}
