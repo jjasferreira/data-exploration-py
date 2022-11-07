@@ -78,23 +78,23 @@
   \par $\sbullet$ \underline{E-Step: assign each point to the cluster that yields higher posterior} \par
   \small
   \vspace{-3mm} \begin{flalign*}
-     & det(\Sigma_1) = det\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} = 2 \times 2 - 1 \times 1 = 3 \quad\quad \textstyle \sum_1^{-1} \displaystyle = \frac{1}{3}\begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} &  & \\
-     & det(\Sigma_2) = det\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = 2 \times 2 - 0 \times 0 = 4 \quad\quad \textstyle \sum_2^{-1} \displaystyle = \frac{1}{4}\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix}                           &  & \\
+     & det(\Sigma_1) = det\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} = 2 \times 2 - 1 \times 1 = 3 \quad\quad \Sigma_1^{-1} = \frac{1}{3}\begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} &  & \\
+     & det(\Sigma_2) = det\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = 2 \times 2 - 0 \times 0 = 4 \quad\quad \Sigma_2^{-1} = \frac{1}{4}\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix}                           &  & \\
   \end{flalign*}
 
   \vspace{-9mm} \begin{flalign*}
-     & \boxed{x_1 = \begin{psmallmatrix} 1 \\ 2 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                                                                    &  & \\
-     & x_1 - \mu_1 = \begin{pmatrix} 1 \\ 2 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \quad\quad \textstyle \sum_1^{-1} \displaystyle \cdot \: (x_1 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 0 \end{pmatrix} = \begin{pmatrix} -\sfrac{2}{3} \\ \sfrac{1}{3} \end{pmatrix} &  & \\
-     & \mathcal{N}(x_1 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot p \, (c = 1) = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & 0 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{2}{3} \\ \sfrac{1}{3} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{3}}}{4\pi\sqrt{3}}                          &  & \\
+     & \boxed{x_1 = \begin{psmallmatrix} 1 \\ 2 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                                             &  & \\
+     & x_1 - \mu_1 = \begin{pmatrix} 1 \\ 2 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_1 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 0 \end{pmatrix} = \begin{pmatrix} -\sfrac{2}{3} \\ \sfrac{1}{3} \end{pmatrix} &  & \\
+     & \mathcal{N}(x_1 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot \pi_1 = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & 0 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{2}{3} \\ \sfrac{1}{3} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{3}}}{4\pi\sqrt{3}}          &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
-     & x_1 - \mu_2 = \begin{pmatrix} 1 \\ 2 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} \quad\quad \textstyle \sum_2^{-1} \displaystyle \cdot \: (x_1 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} \\ 1 \end{pmatrix} &  & \\
-     & \mathcal{N}(x_1 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot p \, (c = 2) = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} 1 & 2 \end{psmallmatrix} \begin{psmallmatrix} \sfrac{1}{2} \\ 1 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{5}{4}}}{8\pi}         &  & \\
+     & x_1 - \mu_2 = \begin{pmatrix} 1 \\ 2 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_1 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} \\ 1 \end{pmatrix}         &  & \\
+     & \mathcal{N}(x_1 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot \pi_2 = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} 1 & 2 \end{psmallmatrix} \begin{psmallmatrix} \sfrac{1}{2} \\ 1 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{5}{4}}}{8\pi} &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
-     & p\, (x_1) = \frac{e^{-\frac{1}{3}}}{4\pi\sqrt{3}} + \frac{e^{-\frac{5}{4}}}{8\pi} = \frac{2e^{-\frac{1}{3}} + \sqrt{3}e^{-\frac{5}{4}}}{8\pi\sqrt{3}}                                                                                &  & \\
+     & p \, (x_1) = \frac{e^{-\frac{1}{3}}}{4\pi\sqrt{3}} + \frac{e^{-\frac{5}{4}}}{8\pi} = \frac{2e^{-\frac{1}{3}} + \sqrt{3}e^{-\frac{5}{4}}}{8\pi\sqrt{3}}                                                                               &  & \\
      & p \, (c = 1 \: | \: x_1) = \frac{\frac{e^{-\frac{1}{3}}}{4\pi\sqrt{3}}}{\frac{2e^{-\frac{1}{3}} + \sqrt{3}e^{-\frac{5}{4}}}{8\pi\sqrt{3}}} = \frac{2e^{-\frac{1}{3}}}{2e^{-\frac{1}{3}} + \sqrt{3}e^{-\frac{5}{4}}} \approx 0.742788 &  & \\
      & p \, (c = 2 \: | \: x_1) =  1 - p \, (c = 1 \: | \: x_1) = 0.257212                                                                                                                                                                  &  & \\
   \end{flalign*}
@@ -120,31 +120,31 @@
 \begin{flushleft}
   \small
   \vspace{-6mm} \begin{flalign*}
-     & \boxed{x_2 = \begin{psmallmatrix} -1 \\ 1 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                                                                      &  & \\
-     & x_2 - \mu_1 = \begin{pmatrix} -1 \\ 1 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -3 \\ -1 \end{pmatrix} \quad\quad \textstyle \sum_1^{-1} \displaystyle \cdot \: (x_2 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -3 \\ -1 \end{pmatrix} = \begin{pmatrix} -\sfrac{5}{3} \\ \sfrac{1}{3} \end{pmatrix} &  & \\
-     & \mathcal{N}(x_2 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot p \, (c = 1) = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -3 & -1 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{5}{3} \\ \sfrac{1}{3} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{7}{3}}}{4\pi\sqrt{3}}                            &  & \\
+     & \boxed{x_2 = \begin{psmallmatrix} -1 \\ 1 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                                               &  & \\
+     & x_2 - \mu_1 = \begin{pmatrix} -1 \\ 1 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -3 \\ -1 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_2 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -3 \\ -1 \end{pmatrix} = \begin{pmatrix} -\sfrac{5}{3} \\ \sfrac{1}{3} \end{pmatrix} &  & \\
+     & \mathcal{N}(x_2 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot \pi_1 = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -3 & -1 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{5}{3} \\ \sfrac{1}{3} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{7}{3}}}{4\pi\sqrt{3}}            &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
-     & x_2 - \mu_2 = \begin{pmatrix} -1 \\ 1 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix} \quad\quad \textstyle \sum_2^{-1} \displaystyle \cdot \: (x_2 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -\sfrac{1}{2} \\ \sfrac{1}{2} \end{pmatrix} &  & \\
-     & \mathcal{N}(x_2 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot p \, (c = 2) = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & 1 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{1}{2} \\ \sfrac{1}{2} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{2}}}{8\pi}           &  & \\
+     & x_2 - \mu_2 = \begin{pmatrix} -1 \\ 1 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_2 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -\sfrac{1}{2} \\ \sfrac{1}{2} \end{pmatrix}       &  & \\
+     & \mathcal{N}(x_2 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot \pi_2 = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & 1 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{1}{2} \\ \sfrac{1}{2} \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{2}}}{8\pi} &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
-     & p\, (x_2) = \frac{e^{-\frac{7}{3}}}{4\pi\sqrt{3}} + \frac{e^{-\frac{1}{2}}}{8\pi} = \frac{2e^{-\frac{7}{3}} + \sqrt{3}e^{-\frac{1}{2}}}{8\pi\sqrt{3}}                                                                                &  & \\
+     & p \, (x_2) = \frac{e^{-\frac{7}{3}}}{4\pi\sqrt{3}} + \frac{e^{-\frac{1}{2}}}{8\pi} = \frac{2e^{-\frac{7}{3}} + \sqrt{3}e^{-\frac{1}{2}}}{8\pi\sqrt{3}}                                                                               &  & \\
      & p \, (c = 1 \: | \: x_2) = \frac{\frac{e^{-\frac{7}{3}}}{4\pi\sqrt{3}}}{\frac{2e^{-\frac{7}{3}} + \sqrt{3}e^{-\frac{1}{2}}}{8\pi\sqrt{3}}} = \frac{2e^{-\frac{7}{3}}}{2e^{-\frac{7}{3}} + \sqrt{3}e^{-\frac{1}{2}}} \approx 0.155843 &  & \\
      & p \, (c = 2 \: | \: x_2) =  1 - p \, (c = 1 \: | \: x_2) = 0.844157                                                                                                                                                                  &  & \\
   \end{flalign*}
 
-  \vspace{-10mm} \begin{flalign*}
-     & \boxed{x_3 = \begin{psmallmatrix} 1 \\ 0 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                                                &  & \\
-     & x_3 - \mu_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -1 \\ -2 \end{pmatrix} \quad\quad \textstyle \sum_1^{-1} \displaystyle \cdot \: (x_3 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ -2 \end{pmatrix} = \begin{pmatrix} 0 \\ -1 \end{pmatrix} &  & \\
-     & \mathcal{N}(x_3 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot p \, (c = 1) = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & -2 \end{psmallmatrix} \begin{psmallmatrix} 0 \\ -1 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-1}}{4\pi\sqrt{3}}                                     &  & \\
+  \vspace{-9mm} \begin{flalign*}
+     & \boxed{x_3 = \begin{psmallmatrix} 1 \\ 0 \end{psmallmatrix}}                                                                                                                                                                                                                                                                                                         &  & \\
+     & x_3 - \mu_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 2 \\ 2 \end{pmatrix} = \begin{pmatrix} -1 \\ -2 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_3 - \mu_1) = \begin{pmatrix} \sfrac{2}{3} & -\sfrac{1}{3} \\ -\sfrac{1}{3} & \sfrac{2}{3} \end{pmatrix} \cdot \begin{pmatrix} -1 \\ -2 \end{pmatrix} = \begin{pmatrix} 0 \\ -1 \end{pmatrix} &  & \\
+     & \mathcal{N}(x_3 \: | \: \mu_1 = \begin{psmallmatrix} 2 \\ 2 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 1 \\ 1 & 2 \end{psmallmatrix}) \cdot \pi_1 = \frac{1}{2\pi\sqrt{3}} e^{-\frac{1}{2} \begin{psmallmatrix} -1 & -2 \end{psmallmatrix} \begin{psmallmatrix} 0 \\ -1 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-1}}{4\pi\sqrt{3}}                     &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
-     & x_3 - \mu_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad\quad \textstyle \sum_2^{-1} \displaystyle \cdot \: (x_3 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} \\ 0 \end{pmatrix} &  & \\
-     & \mathcal{N}(x_3 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot p \, (c = 2) = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} 1 & 0 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{1}{2} \\ 0 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{4}}}{8\pi}        &  & \\
+     & x_3 - \mu_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_3 - \mu_2) = \begin{pmatrix} \sfrac{1}{2} & 0 \\ 0 & \sfrac{1}{2} \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \sfrac{1}{2} \\ 0 \end{pmatrix}          &  & \\
+     & \mathcal{N}(x_3 \: | \: \mu_2 = \begin{psmallmatrix} 0 \\ 0 \end{psmallmatrix}, \Sigma_1 = \begin{psmallmatrix} 2 & 0 \\ 0 & 2 \end{psmallmatrix}) \cdot \pi_2 = \frac{1}{2\pi\sqrt{4}} e^{-\frac{1}{2} \begin{psmallmatrix} 1 & 0 \end{psmallmatrix} \begin{psmallmatrix} -\sfrac{1}{2} \\ 0 \end{psmallmatrix}} \cdot 0.5 = \frac{e^{-\frac{1}{4}}}{8\pi} &  & \\
   \end{flalign*}
   \par \vspace{-7mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
   \vspace{-5mm} \begin{flalign*}
@@ -216,8 +216,79 @@
   \textbf{2)}
   \par\textbf{a.}
   \small
+  \vspace{-3mm} \begin{flalign*}
+     & \mu_c = \mu_c^{new}, \quad \Sigma_c = \Sigma_c^{new}, \quad \pi_c = \pi_c^{new}, \quad c \in \big\{1, 2\big\}                                                                                                                                                  &  & \\
+     & det(\Sigma_1) = det\begin{pmatrix} 0.436054 & 0.077572 \\ 0.077572 & 0.778455 \end{pmatrix} \approx 0.333431 \quad\quad \Sigma_1^{-1} = \begin{pmatrix} 2.334681 & -0.232648 \\ -0.232648 & 1.307779 \end{pmatrix}                                             &  & \\
+     & det(\Sigma_2) = det\begin{pmatrix} 0.998817 & -0.215306 \\ -0.215306 & 0.467476 \end{pmatrix} \approx 0.420566 \quad\quad \Sigma_2^{-1} = \begin{pmatrix} 1.111540 & 0.511943 \\ 0.511943 & 2.374935 \end{pmatrix}                                             &  & \\
+     & \boxed{x_1 = \begin{psmallmatrix} 1 \\ 2 \end{psmallmatrix}}                                                                                                                                                                                                   &  & \\
+     & x_1 - \mu_1 = \begin{pmatrix} 1 - 0.750963 \\ 2 - 1.311491 \end{pmatrix} = \begin{pmatrix} 0.249037 \\ 0.688509 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_1 - \mu_1) \approx \begin{pmatrix} 0.421242 \\ 0.842480 \end{pmatrix}                       &  & \\
+     & \mathcal{N}(x_1 \: | \: \mu_1, \Sigma_1) \cdot \pi_1 = \frac{1}{2\pi\sqrt{0.333431}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.249037 & 0.688509 \end{psmallmatrix} \begin{psmallmatrix} 0.421242 \\ 0.842480 \end{psmallmatrix}} \cdot 0.417189 \approx 0.081642 &  & \\
+  \end{flalign*}
+\end{flushleft}
+\normalsize
 
+\pagebreak
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf}                           &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
 
+\begin{center}
+  \textbf{}
+\end{center}
+
+\begin{flushleft}
+  \small
+  \vspace{-9mm} \begin{flalign*}
+     & x_1 - \mu_2 = \begin{pmatrix} 1 - 0.034385 \\ 2 - 0.777028 \end{pmatrix} = \begin{pmatrix} 0.965615 \\ 1.222972 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_1 - \mu_2) \approx \begin{pmatrix} 1.699412 \\ 3.398819 \end{pmatrix}                       &  & \\
+     & \mathcal{N}(x_1 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.965615 & 1.222972 \end{psmallmatrix} \begin{psmallmatrix} 1.699412 \\ 3.398819 \end{psmallmatrix}} \cdot 0.582811 \approx 0.007879 &  & \\
+  \end{flalign*}
+  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-8mm} \begin{flalign*}
+     & p \, (x_1) = 0.081642 + 0.007879 = 0.089521                                                                                                           &  & \\
+     & p \, (c = 1 \: | \: x_1) = \frac{0.081642}{0.089521} \approx 0.911987, \quad\quad p \, (c = 2 \: | \: x_1) =  1 - p \, (c = 1 \: | \: x_1) = 0.088013 &  & \\
+     & \textcolor{ForestGreen}{x_1 \, \text{fica atribuída ao cluster 1}}                                                                                    &  & \\
+  \end{flalign*}
+
+  \vspace{-12mm} \begin{flalign*}
+     & \boxed{x_2 = \begin{psmallmatrix} -1 \\ 1 \end{psmallmatrix}}                                                                                                                                                                                                     &  & \\
+     & x_2 - \mu_1 = \begin{pmatrix} -1 - 0.750963 \\ 1 - 1.311491 \end{pmatrix} = \begin{pmatrix} -1.750963 \\ -0.311491 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_2 - \mu_1) \approx \begin{pmatrix} -4.015472 \\ 0.000003 \end{pmatrix}                      &  & \\
+     & \mathcal{N}(x_2 \: | \: \mu_1, \Sigma_1) \cdot \pi_1 = \frac{1}{2\pi\sqrt{0.333431}} e^{-\frac{1}{2} \begin{psmallmatrix} -1.750963 & -0.311491 \end{psmallmatrix} \begin{psmallmatrix} -4.015472 \\ 0.000003 \end{psmallmatrix}} \cdot 0.417189 \approx 0.003419 &  & \\
+  \end{flalign*}
+  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-6mm} \begin{flalign*}
+     & x_2 - \mu_2 = \begin{pmatrix} -1 - 0.034385 \\ 1 - 0.777028 \end{pmatrix} = \begin{pmatrix} -1.034385 \\ 0.222972 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_2 - \mu_2) \approx \begin{pmatrix} -1.035611 \\ -0.000002 \end{pmatrix}                      &  & \\
+     & \mathcal{N}(x_2 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} -1.034385 & 0.222972 \end{psmallmatrix} \begin{psmallmatrix} -1.035611 \\ -0.000002 \end{psmallmatrix}} \cdot 0.582811 \approx 0.083718 &  & \\
+  \end{flalign*}
+  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-8mm} \begin{flalign*}
+     & p \, (x_2) = 0.003419 + 0.083718 = 0.087137                                                                                                           &  & \\
+     & p \, (c = 1 \: | \: x_2) = \frac{0.003419}{0.087137} \approx 0.039237, \quad\quad p \, (c = 2 \: | \: x_2) =  1 - p \, (c = 1 \: | \: x_1) = 0.960763 &  & \\
+     & \textcolor{ForestGreen}{x_2 \, \text{fica atribuída ao cluster 2}}                                                                                    &  & \\
+  \end{flalign*}
+
+  \vspace{-12mm} \begin{flalign*}
+     & \boxed{x_3 = \begin{psmallmatrix} 1 \\ 0 \end{psmallmatrix}}                                                                                                                                                                                                     &  & \\
+     & x_3 - \mu_1 = \begin{pmatrix} 1 - 0.750963 \\ 0 - 1.311491 \end{pmatrix} = \begin{pmatrix} 0.249037 \\ -1.311491 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_3 - \mu_1) \approx \begin{pmatrix} 0.886538 \\ -1.773078 \end{pmatrix}                       &  & \\
+     & \mathcal{N}(x_3 \: | \: \mu_1, \Sigma_1) \cdot \pi_1 = \frac{1}{2\pi\sqrt{0.333431}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.249037 & -1.311491 \end{psmallmatrix} \begin{psmallmatrix} 0.886538 \\ -1.773078 \end{psmallmatrix}} \cdot 0.417189 \approx 0.032193 &  & \\
+  \end{flalign*}
+  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-6mm} \begin{flalign*}
+     & x_3 - \mu_2 = \begin{pmatrix} 1 - 0.034385 \\ 0 - 0.777028 \end{pmatrix} = \begin{pmatrix} 0.965615 \\ -0.777028 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_3 - \mu_2) \approx \begin{pmatrix} 0.675526 \\ -1.351051 \end{pmatrix}                       &  & \\
+     & \mathcal{N}(x_3 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.965615 & -0.777028 \end{psmallmatrix} \begin{psmallmatrix} 0.675526 \\ -1.351051 \end{psmallmatrix}} \cdot 0.582811 \approx 0.061069 &  & \\
+  \end{flalign*}
+  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-8mm} \begin{flalign*}
+     & p \, (x_3) = 0.032193 + 0.061069 = 0.093262                                                                                                           &  & \\
+     & p \, (c = 1 \: | \: x_3) = \frac{0.032193}{0.093262} \approx 0.345189, \quad\quad p \, (c = 2 \: | \: x_3) =  1 - p \, (c = 1 \: | \: x_1) = 0.654811 &  & \\
+     & \textcolor{ForestGreen}{x_3 \, \text{fica atribuída ao cluster 2}}                                                                                    &  & \\
+  \end{flalign*}
 
   \normalsize
   \par\textbf{b.}
