@@ -249,8 +249,8 @@
      & x_1 - \mu_2 = \begin{pmatrix} 1 - 0.034385 \\ 2 - 0.777028 \end{pmatrix} = \begin{pmatrix} 0.965615 \\ 1.222972 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_1 - \mu_2) \approx \begin{pmatrix} 1.699412 \\ 3.398819 \end{pmatrix}                       &  & \\
      & \mathcal{N}(x_1 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.965615 & 1.222972 \end{psmallmatrix} \begin{psmallmatrix} 1.699412 \\ 3.398819 \end{psmallmatrix}} \cdot 0.582811 \approx 0.007879 &  & \\
   \end{flalign*}
-  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
-  \vspace{-8mm} \begin{flalign*}
+  \par \vspace{-9.5mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-7mm} \begin{flalign*}
      & p \, (x_1) = 0.081642 + 0.007879 = 0.089521                                                                                                           &  & \\
      & p \, (c = 1 \: | \: x_1) = \frac{0.081642}{0.089521} \approx 0.911987, \quad\quad p \, (c = 2 \: | \: x_1) =  1 - p \, (c = 1 \: | \: x_1) = 0.088013 &  & \\
      & \textcolor{ForestGreen}{x_1 \, \text{fica atribuída ao cluster 1}}                                                                                    &  & \\
@@ -261,38 +261,68 @@
      & x_2 - \mu_1 = \begin{pmatrix} -1 - 0.750963 \\ 1 - 1.311491 \end{pmatrix} = \begin{pmatrix} -1.750963 \\ -0.311491 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_2 - \mu_1) \approx \begin{pmatrix} -4.015472 \\ 0.000003 \end{pmatrix}                      &  & \\
      & \mathcal{N}(x_2 \: | \: \mu_1, \Sigma_1) \cdot \pi_1 = \frac{1}{2\pi\sqrt{0.333431}} e^{-\frac{1}{2} \begin{psmallmatrix} -1.750963 & -0.311491 \end{psmallmatrix} \begin{psmallmatrix} -4.015472 \\ 0.000003 \end{psmallmatrix}} \cdot 0.417189 \approx 0.003419 &  & \\
   \end{flalign*}
-  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
-  \vspace{-6mm} \begin{flalign*}
+  \par \vspace{-9.5mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-5mm} \begin{flalign*}
      & x_2 - \mu_2 = \begin{pmatrix} -1 - 0.034385 \\ 1 - 0.777028 \end{pmatrix} = \begin{pmatrix} -1.034385 \\ 0.222972 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_2 - \mu_2) \approx \begin{pmatrix} -1.035611 \\ -0.000002 \end{pmatrix}                      &  & \\
      & \mathcal{N}(x_2 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} -1.034385 & 0.222972 \end{psmallmatrix} \begin{psmallmatrix} -1.035611 \\ -0.000002 \end{psmallmatrix}} \cdot 0.582811 \approx 0.083718 &  & \\
   \end{flalign*}
-  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
-  \vspace{-8mm} \begin{flalign*}
+  \par \vspace{-9.5mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-7mm} \begin{flalign*}
      & p \, (x_2) = 0.003419 + 0.083718 = 0.087137                                                                                                           &  & \\
      & p \, (c = 1 \: | \: x_2) = \frac{0.003419}{0.087137} \approx 0.039237, \quad\quad p \, (c = 2 \: | \: x_2) =  1 - p \, (c = 1 \: | \: x_1) = 0.960763 &  & \\
      & \textcolor{ForestGreen}{x_2 \, \text{fica atribuída ao cluster 2}}                                                                                    &  & \\
   \end{flalign*}
 
-  \vspace{-12mm} \begin{flalign*}
+  \vspace{-9mm} \begin{flalign*}
      & \boxed{x_3 = \begin{psmallmatrix} 1 \\ 0 \end{psmallmatrix}}                                                                                                                                                                                                     &  & \\
      & x_3 - \mu_1 = \begin{pmatrix} 1 - 0.750963 \\ 0 - 1.311491 \end{pmatrix} = \begin{pmatrix} 0.249037 \\ -1.311491 \end{pmatrix} \quad\quad \Sigma_1^{-1} \cdot \: (x_3 - \mu_1) \approx \begin{pmatrix} 0.886538 \\ -1.773078 \end{pmatrix}                       &  & \\
      & \mathcal{N}(x_3 \: | \: \mu_1, \Sigma_1) \cdot \pi_1 = \frac{1}{2\pi\sqrt{0.333431}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.249037 & -1.311491 \end{psmallmatrix} \begin{psmallmatrix} 0.886538 \\ -1.773078 \end{psmallmatrix}} \cdot 0.417189 \approx 0.032193 &  & \\
   \end{flalign*}
-  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
-  \vspace{-6mm} \begin{flalign*}
+  \par \vspace{-9.5mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-5mm} \begin{flalign*}
      & x_3 - \mu_2 = \begin{pmatrix} 1 - 0.034385 \\ 0 - 0.777028 \end{pmatrix} = \begin{pmatrix} 0.965615 \\ -0.777028 \end{pmatrix} \quad\quad \Sigma_2^{-1} \cdot \: (x_3 - \mu_2) \approx \begin{pmatrix} 0.675526 \\ -1.351051 \end{pmatrix}                       &  & \\
      & \mathcal{N}(x_3 \: | \: \mu_2, \Sigma_2) \cdot \pi_2 = \frac{1}{2\pi\sqrt{0.420566}} e^{-\frac{1}{2} \begin{psmallmatrix} 0.965615 & -0.777028 \end{psmallmatrix} \begin{psmallmatrix} 0.675526 \\ -1.351051 \end{psmallmatrix}} \cdot 0.582811 \approx 0.061069 &  & \\
   \end{flalign*}
-  \par \vspace{-10mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
-  \vspace{-8mm} \begin{flalign*}
+  \par \vspace{-9.5mm} \textcolor{lightgray}{\rule{0.9\textwidth}{0.1mm}} \par
+  \vspace{-7mm} \begin{flalign*}
      & p \, (x_3) = 0.032193 + 0.061069 = 0.093262                                                                                                           &  & \\
      & p \, (c = 1 \: | \: x_3) = \frac{0.032193}{0.093262} \approx 0.345189, \quad\quad p \, (c = 2 \: | \: x_3) =  1 - p \, (c = 1 \: | \: x_1) = 0.654811 &  & \\
      & \textcolor{ForestGreen}{x_3 \, \text{fica atribuída ao cluster 2}}                                                                                    &  & \\
   \end{flalign*}
+\end{flushleft}
+\normalsize
 
-  \normalsize
+\pagebreak
+\color{darkgray}
+\hspace{-8.25mm}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf}                           &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+  \textbf{}
+\end{center}
+
+\begin{flushleft}
+  \textbf{2)}
   \par\textbf{b.}
   \small
+  \vspace{-2mm} \begin{flalign*}
+     & s(x_i)= \begin{cases} 1-\frac{a(i)}{b(i)}, \quad a(i) < b(i) \\ 0, \quad a(i) = b(i)\\ \frac{b(i)}{a(i)} - 1, \quad a(i) > b(i)
+               \end{cases} &  &       \\
+     & a(2) = {||x_2-x_3||}_2 = \sqrt{(-1-1)^2 + (1-0)^2} = \sqrt{5}                                                                   &  & \\
+     & b(2) = {||x_2-x_1||}_2 = \sqrt{(1-1)^2 + (1-2)^2} = \sqrt{5}                                                                    &  & \\
+     & a(2) = b(2) \quad \Rightarrow \quad s(x_2) = 0                                                                                  &  & \\
+     & a(3) = {||x_3-x_2||}_2 = \sqrt{(1+1)^2 + (0-1)^2} = \sqrt{5}                                                                    &  & \\
+     & b(3) = {||x_3-x_1||}_2 = \sqrt{(1-1)^2 + (0-2)^2} = \sqrt{4} = 2                                                                &  & \\
+     & a(3) > b(3) \quad \Rightarrow \quad s(x_3) = \frac{b(3)}{a(3)} - 1 = \frac{2}{\sqrt{5}} - 1 \approx -0.105573                   &  & \\
+     & \textcolor{ForestGreen}{s(c = 2)} = \frac{s(x_2) + s(x_3)}{2} = \frac{0-0.105573}{2} \approx \textcolor{ForestGreen}{-0.052787} &  & \\
+  \end{flalign*}
 \end{flushleft}
 \normalsize
 
@@ -314,22 +344,36 @@
 
 % PROBLEM 1
 \begin{flushleft}
-  \textbf{1)}
+  \textbf{1)} \par
+  Silhouette score for iteration 0 is 0.606181. \hspace{5mm} Purity score for iteration 0 is 0.746032. \par
+  Silhouette score for iteration 1 is 0.601887. \hspace{5mm} Purity score for iteration 1 is 0.75. \par
+  Silhouette score for iteration 2 is 0.601887. \hspace{5mm} Purity score for iteration 2 is 0.75. \par
 \end{flushleft}
 
 % PROBLEM 2
 \begin{flushleft}
   \textbf{2)}
+  The non-determinism is being caused by the random\_state attribution.
+  By using a different seed, the clusters will be initialized in different positions, and might converge slightly differently, although the variability is minimal, as can be seen by noting the fact that two of the iterations produced the same sillhouette and purity results, which can be attributed to the dataset having somewhat defined clusters.
 \end{flushleft}
 
 % PROBLEM 3
 \begin{flushleft}
   \textbf{3)}
+  \begin{tabularx}{1.09\textwidth} {X X}
+    \vspace{-4mm}\hspace{-7.5mm}\includegraphics[scale=0.6]{hw04_plot_pca_km1.pdf}
+     &
+    \vspace{-4mm}\hspace{-5.25mm}\includegraphics[scale=0.6]{hw04_plot_pca_km2.pdf}
+  \end{tabularx}
 \end{flushleft}
 
 % PROBLEM 4
 \begin{flushleft}
-  \textbf{4)}
+  \textbf{4)} The number of components needed to account for 80\% of the variance is 31. We can conclude that the first principal component explains almost 100\% of the variability, and thus it is sufficient to explain the requested 80\%. \par
+  \vspace{-1mm}
+  \begin{center}
+    \includegraphics[scale=0.6]{hw04_plot_pca_variance.pdf}
+  \end{center}
 \end{flushleft}
 
 \pagebreak
@@ -383,7 +427,49 @@
 
 \hspace{-8.25mm}
 \begin{tabularx}{1.09\textwidth}{X}
-  \lstinputlisting{hw04.py}
+  \lstinputlisting{hw04_1.py}
+\end{tabularx}
+
+\pagebreak
+\hspace{-8.25mm}
+\color{darkgray}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf}                           &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+  \textbf{}
+\end{center}
+
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth}{X}
+  \lstinputlisting{hw04_3.py}
+\end{tabularx}
+
+\pagebreak
+\hspace{-8.25mm}
+\color{darkgray}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\begin{tabularx}{1.09\textwidth} {>{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X}
+  \includegraphics[scale=0.2]{tecnico.pdf}                           &
+  \textbf{Aprendizagem 2022/23} \par \textbf{Homework IV - Group 66} &
+  João Cardoso, 99251 \par José João Ferreira, 99259
+\end{tabularx}
+\renewcommand\tabularxcolumn[1]{p{#1}}
+\color{black}
+
+\begin{center}
+  \textbf{}
+\end{center}
+
+\hspace{-8.25mm}
+\begin{tabularx}{1.09\textwidth}{X}
+  \lstinputlisting{hw04_4.py}
 \end{tabularx}
 
 \end{document}
